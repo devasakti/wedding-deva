@@ -667,6 +667,153 @@
       to { transform: rotate(360deg); }
     }
 
+    /* ==========================================
+       PROFIL MEMPELAI SECTION
+       ========================================== */
+    .mempelai-section {
+      padding: 100px 20px;
+      background: #fffbf7;
+    }
+
+    .mempelai-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      max-width: 950px;
+      margin: 50px auto 0;
+    }
+
+    .mempelai-box {
+      flex: 1;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 30px;
+      box-shadow: 0 15px 45px rgba(91, 77, 64, 0.05);
+      border: 1px solid rgba(224, 204, 177, 0.2);
+    }
+
+    .mempelai-img-wrapper {
+      width: 180px;
+      height: 180px;
+      margin: 0 auto 25px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #fff;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    .mempelai-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .mempelai-box:hover .mempelai-img-wrapper img {
+      transform: scale(1.1);
+    }
+
+    .mempelai-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #5d4e41;
+      margin-bottom: 10px;
+    }
+
+    .mempelai-ortu {
+      font-size: 14px;
+      color: #8c7a6b;
+      line-height: 1.8;
+    }
+
+    .mempelai-separator {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      color: #c9ae8d;
+      font-style: italic;
+    }
+
+    /* ==========================================
+       GALERI FOTO SECTION
+       ========================================== */
+    .gallery-section {
+      padding: 100px 20px;
+    }
+
+    .gallery-grid {
+      max-width: 950px;
+      margin: 50px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 250px;
+      gap: 15px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    /* Efek Hover Magis Menyerupai Vendor Pro */
+    .gallery-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(93, 78, 65, 0.2);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-item:hover::after {
+      opacity: 1;
+    }
+
+    /* Variasi Layout Grid Masonry palsu agar estetik */
+    .gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+    }
+
+    /* RESPONSIVE UNTUK DUA SEKSI BARU */
+    @media(max-width: 768px) {
+      .mempelai-grid {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .mempelai-separator {
+        margin: 10px 0;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+      }
+      .gallery-item.wide {
+        grid-column: span 1; /* Di mobile direset agar tidak kepotong */
+      }
+    }
+    
     @media(max-width:768px) {
 
       html,
@@ -891,7 +1038,7 @@
     <p>
       Jl. Bungur Raya, RT.01/RW.08,<br>
       Cilendek Timur,<br>
-      Tanah Sareal,<br>
+      Bogor Barat,<br>
       Kota Bogor, Jawa Barat 16112
     </p>
 
@@ -907,6 +1054,81 @@
 
 </section>
 
+<!-- ==========================================
+     SECTION PROFIL MEMPELAI 
+     ========================================== -->
+<section class="mempelai-section">
+  <div class="container" style="margin: 0 auto;">
+    <h2 class="section-title" data-aos="fade-up">Kedua Mempelai</h2>
+    <p class="section-text" data-aos="fade-up" data-aos-delay="150">
+      Maha Suci Allah SWT yang telah menciptakan makhluk-Nya berpasang-pasangan. Bersanding dengan ridho-Mu, kami memohon doa restu untuk menyatukan hati.
+    </p>
+
+    <div class="mempelai-grid">
+      <!-- Mempelai Pria -->
+      <div class="mempelai-box" data-aos="fade-right">
+        <div class="mempelai-img-wrapper">
+          <!-- Ganti URL gambar di bawah dengan foto Deva -->
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=600&auto=format&fit=crop" alt="Deva Wirasakti">
+        </div>
+        <h3 class="mempelai-name">Deva Wirasakti</h3>
+        <p class="mempelai-ortu">
+          Putra dari <br>
+          <strong>Bapak [Nama Ayah Deva]</strong> <br>
+          &amp; <strong>Ibu [Nama Ibu Deva]</strong>
+        </p>
+      </div>
+
+      <div class="mempelai-separator" data-aos="zoom-in">&amp;</div>
+
+      <!-- Mempelai Wanita -->
+      <div class="mempelai-box" data-aos="fade-left">
+        <div class="mempelai-img-wrapper">
+          <!-- Ganti URL gambar di bawah dengan foto Susilawati -->
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Susilawati">
+        </div>
+        <h3 class="mempelai-name">Susilawati</h3>
+        <p class="mempelai-ortu">
+          Putri dari <br>
+          <strong>Bapak [Nama Ayah Susi]</strong> <br>
+          &amp; <strong>Ibu [Nama Ibu Susi]</strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION GALERI FOTO PREWEDDING
+     ========================================== -->
+<section class="gallery-section">
+  <div class="container" style="margin: 0 auto;">
+    <h2 class="section-title" data-aos="fade-up">Galeri Bahagia</h2>
+    <p class="section-text" data-aos="fade-up" data-aos-delay="150">
+      Mengabadikan sisa waktu dalam coretan potret kebersamaan sebelum melangkah ke gerbang ikatan suci.
+    </p>
+
+    <!-- Susunan Asimetris Elegan ala Undangan Premium -->
+    <div class="gallery-grid" data-aos="zoom-in-up" data-aos-delay="300">
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=600&auto=format&fit=crop" alt="Prewedding Deva Susi 1">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?q=80&w=600&auto=format&fit=crop" alt="Prewedding Deva Susi 2">
+      </div>
+      <div class="gallery-item tall">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop" alt="Prewedding Deva Susi 3">
+      </div>
+      <div class="gallery-item wide">
+        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=800&auto=format&fit=crop" alt="Prewedding Deva Susi 4">
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600&auto=format&fit=crop" alt="Prewedding Deva Susi 5">
+      </div>
+    </div>
+  </div>
+</section>
+  
 <section class="story-section">
 
   <div class="story-container" data-aos="fade-up">
