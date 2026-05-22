@@ -42,38 +42,25 @@
     .opening {
       position: fixed;
       inset: 0;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-
+      background: linear-gradient(rgba(255,250,245,0.88), rgba(255,250,245,0.92)),
+      url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop') center/cover;
       display: flex;
       justify-content: center;
       align-items: center;
-
-      padding: 20px;
-
-      background:
-      linear-gradient(rgba(248,244,239,0.92), rgba(248,244,239,0.92)),
-      url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop')
-      center/cover no-repeat;
-
-  z-index: 9999;
+      z-index: 9999;
+      transition: 1.5s ease;
+      backdrop-filter: blur(6px);
     }
 
     .envelope {
-      width: 100%;
-  max-width: 420px;
-
-  min-height: 360px;
-  height: auto;
-
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  overflow: visible;
+      width: 420px;
+      height: 360px;
+      position: relative;
+      border-radius: 25px;
+      overflow: visible;
+      background: linear-gradient(145deg, #fff7ec, #ead9bf);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.18);
+      animation: float 4s ease-in-out infinite;
     }
 
     @keyframes float {
@@ -94,17 +81,19 @@
     }
 
     .letter {
-      position: relative;
-      width: 100%;
+      position: absolute;
+      inset: 20px;
       background: rgba(255,255,255,0.97);
       border-radius: 24px;
+      z-index: 2;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       text-align: center;
-      padding: 42px 28px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+      padding: 42px 30px 42px;
+      min-height: 320px;
+      backdrop-filter: blur(10px);
     }
 
     .small-title {
@@ -684,7 +673,6 @@
       body {
         overflow-x: hidden;
         width: 100%;
-        max-width: 100%;
       }
 
       * {
