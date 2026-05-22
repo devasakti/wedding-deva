@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Wedding Of Deva Wirasakti & Susilawati</title>
+  <title>The Wedding Of Deva & Susilawati</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -320,6 +320,100 @@
       transform: translateY(-5px);
     }
 
+    .wish-section {
+      padding: 120px 20px;
+    }
+
+    .wish-container {
+      max-width: 850px;
+      margin: auto;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(14px);
+      border-radius: 35px;
+      padding: 55px 30px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.08);
+    }
+
+    .wish-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .wish-form input,
+    .wish-form textarea {
+      width: 100%;
+      border: none;
+      padding: 18px 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.95);
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      color: #5f4f42;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+      outline: none;
+    }
+
+    .wish-form textarea {
+      min-height: 140px;
+      resize: none;
+    }
+
+    .wish-btn {
+      border: none;
+      padding: 16px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #b89f7a, #d4b996);
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 10px 25px rgba(184,159,122,0.25);
+    }
+
+    .wish-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .wish-list {
+      margin-top: 45px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .wish-card {
+      background: rgba(255,255,255,0.9);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .wish-card h4 {
+      color: #6b5a4c;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .wish-card p {
+      color: #7b6b5b;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     footer {
       padding: 100px 20px;
       text-align: center;
@@ -412,7 +506,7 @@
     <div class="letter">
       <div class="small-title">THE WEDDING OF</div>
       <div class="main-title">
-        Deva Wirasakti &<br>Susilawati
+        Deva &<br>Susilawati
       </div>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;color:#c8b193;">
         <div style="width:55px;height:1px;background:#d7c1a6;"></div>
@@ -507,6 +601,43 @@
 
 </section>
 
+<section class="wish-section">
+
+  <div class="wish-container" data-aos="fade-up">
+
+    <h2 class="section-title">
+      Doa & Ucapan
+    </h2>
+
+    <p class="section-text">
+      Berikan doa dan ucapan terbaik untuk kedua mempelai.
+    </p>
+
+    <div class="wish-form">
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Nama Anda"
+      >
+
+      <textarea
+        id="message"
+        placeholder="Tulis doa dan ucapan terbaik..."
+      ></textarea>
+
+      <button class="wish-btn" onclick="addWish()">
+        Kirim Ucapan
+      </button>
+
+    </div>
+
+    <div class="wish-list" id="wishList"></div>
+
+  </div>
+
+</section>
+
 <footer>
 
   <h2 data-aos="fade-up">
@@ -531,13 +662,42 @@
   <source src="music/music.mp3" type="audio/mp3">
 </audio>
 
-<script>
+<script type="module">
 
+  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js';
+  import {
+    getDatabase,
+    ref,
+    push,
+    onValue
+  } from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js';
+
+  // FIREBASE CONFIG
+  const firebaseConfig = {
+    apiKey: "AIzaSyANSZzBd270UI9e_uOAem0vu75JKxPVDmQ",
+    authDomain: "wedding-invitation-a72b1.firebaseapp.com",
+    databaseURL: "https://wedding-invitation-a72b1-default-rtdb.asia-southeast1.firebasedatabase.app/",
+    projectId: "wedding-invitation-a72b1",
+    storageBucket: "wedding-invitation-a72b1.firebasestorage.app",
+    messagingSenderId: "568176024473",
+    appId: "1:568176024473:web:98e45dd1764a9c613d1108",
+    measurementId: "G-2N372D8X5F"
+  };
+
+  // INISIALISASI FIREBASE
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
+
+  // REFERENSI DATABASE UCAPAN
+  const wishesRef = ref(database, 'wishes');
+
+  // AOS ANIMATION
   AOS.init({
     duration: 1400,
     once: false
   });
 
+  // COUNTDOWN
   const targetDate = new Date('June 2, 2026 10:00:00').getTime();
 
   setInterval(() => {
@@ -557,6 +717,7 @@
 
   }, 1000);
 
+  // OPEN INVITATION
   function openInvitation() {
 
     const opening = document.getElementById('opening');
@@ -570,6 +731,9 @@
 
   }
 
+  window.openInvitation = openInvitation;
+
+  // MUSIC CONTROL
   function toggleMusic() {
 
     const music = document.getElementById('bgMusic');
@@ -581,6 +745,66 @@
     }
 
   }
+
+  window.toggleMusic = toggleMusic;
+
+  // TAMBAH UCAPAN REALTIME
+  async function addWish() {
+
+    const name = document.getElementById('name').value;
+    const message = document.getElementById('message').value;
+
+    if(name === '' || message === '') {
+      alert('Silakan isi nama dan ucapan terlebih dahulu');
+      return;
+    }
+
+    await push(wishesRef, {
+      name,
+      message,
+      createdAt: Date.now()
+    });
+
+    document.getElementById('name').value = '';
+    document.getElementById('message').value = '';
+
+  }
+
+  window.addWish = addWish;
+
+  // LOAD UCAPAN REALTIME
+  function loadWishes() {
+
+    const wishList = document.getElementById('wishList');
+
+    onValue(wishesRef, (snapshot) => {
+
+      wishList.innerHTML = '';
+
+      const data = snapshot.val();
+
+      if(data) {
+
+        const wishesArray = Object.values(data).reverse();
+
+        wishesArray.forEach(wish => {
+
+          wishList.innerHTML += `
+            <div class="wish-card">
+              <h4>${wish.name}</h4>
+              <p>${wish.message}</p>
+            </div>
+          `;
+
+        });
+
+      }
+
+    });
+
+  }
+
+  loadWishes();
 
   document.body.style.overflow = 'hidden';
 
