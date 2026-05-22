@@ -431,6 +431,198 @@
       }
     }
 
+    .story-section {
+      padding: 120px 20px 50px;
+    }
+
+    .story-container {
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .story-timeline {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      position: relative;
+    }
+
+    .story-timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, #d8c0a3, transparent);
+    }
+
+    .story-card {
+      position: relative;
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(14px);
+      border-radius: 28px;
+      padding: 35px 35px 35px 75px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+
+    .story-card::before {
+      content: '';
+      position: absolute;
+      left: 15px;
+      top: 38px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #c9ae8d, #e0ccb1);
+      box-shadow: 0 0 0 8px rgba(201,174,141,0.18);
+    }
+
+    .story-date {
+      color: #b08f6d;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .story-card h3 {
+      color: #5e4d40;
+      font-size: 28px;
+      margin-bottom: 15px;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .story-card p {
+      color: #7b6b5b;
+      line-height: 1.9;
+      font-size: 15px;
+    }
+
+    .gift-section {
+      padding: 120px 20px 40px;
+    }
+
+    .gift-wrapper {
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .gift-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-top: 55px;
+    }
+
+    .gift-card {
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(16px);
+      border-radius: 32px;
+      padding: 38px 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+      transition: 0.4s;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .gift-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .gift-card::before {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(214,185,152,0.15);
+      top: -70px;
+      right: -70px;
+    }
+
+    .bank-name {
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #b18f69;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .rekening-number {
+      font-size: 28px;
+      font-weight: 600;
+      color: #5d4d40;
+      margin-bottom: 16px;
+      word-break: break-all;
+      position: relative;
+      z-index: 2;
+    }
+
+    .rekening-name {
+      color: #7d6b5b;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .copy-btn {
+      border: none;
+      padding: 14px 24px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #b89f7a, #d4b996);
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+      box-shadow: 0 10px 25px rgba(184,159,122,0.25);
+      position: relative;
+      z-index: 2;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .copy-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .music-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #c9ae8d, #e0ccb1);
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: 0.3s;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.08);
+    }
+
     footer {
       padding: 100px 20px;
       text-align: center;
@@ -602,7 +794,7 @@
     <p>
       Jl. Bungur Raya, RT.01/RW.08,<br>
       Cilendek Timur,<br>
-      Bogor Barat,<br>
+      Tanah Sareal,<br>
       Kota Bogor, Jawa Barat 16112
     </p>
 
@@ -613,6 +805,106 @@
     >
       Buka Google Maps
     </a>
+
+  </div>
+
+</section>
+
+<section class="story-section">
+
+  <div class="story-container" data-aos="fade-up">
+
+    <h2 class="section-title">
+      Kisah Kami
+    </h2>
+
+    <p class="section-text">
+      Sebuah perjalanan sederhana yang dipenuhi cinta, doa, dan harapan hingga akhirnya membawa kami menuju hari bahagia.
+    </p>
+
+    <div class="story-timeline">
+
+      <div class="story-card" data-aos="fade-right">
+        <div class="story-date">28 September 2023</div>
+        <h3>Awal Pertemuan</h3>
+        <p>
+          Berawal dari sebuah pertemuan sederhana di XXI Bogor Square. Hari itu menjadi momen yang sangat berarti karena bukan hanya menjadi pertemuan pertama kami, tetapi juga awal dari hubungan yang kami jalani bersama.
+        </p>
+      </div>
+
+      <div class="story-card" data-aos="fade-left">
+        <div class="story-date">28 Oktober 2025</div>
+        <h3>Lamaran</h3>
+        <p>
+          Setelah melewati banyak cerita, tawa, dan perjalanan bersama, sebuah cincin emas menjadi simbol keseriusan dan komitmen kami untuk melangkah menuju masa depan yang lebih indah.
+        </p>
+      </div>
+
+      <div class="story-card" data-aos="fade-right">
+        <div class="story-date">April 2026</div>
+        <h3>Menuju Pernikahan</h3>
+        <p>
+          Dengan penuh rasa syukur dan keyakinan, kami memutuskan untuk menyempurnakan perjalanan ini dalam ikatan suci pernikahan dan memulai babak baru sebagai pasangan hidup.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="gift-section">
+
+  <div class="gift-wrapper" data-aos="fade-up">
+
+    <h2 class="section-title">
+      Wedding Gift
+    </h2>
+
+    <p class="section-text">
+      Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika ingin memberikan tanda kasih, dapat melalui fitur digital gift berikut.
+    </p>
+
+    <div class="gift-grid">
+
+      <div class="gift-card" data-aos="fade-right">
+
+        <div class="bank-name">Bank Mandiri</div>
+
+        <div class="rekening-number" id="rekeningPria">
+          1234567890123
+        </div>
+
+        <div class="rekening-name">
+          a.n Deva Wirasakti
+        </div>
+
+        <button class="copy-btn" onclick="copyRekening('rekeningPria')">
+          Salin Nomor Rekening
+        </button>
+
+      </div>
+
+      <div class="gift-card" data-aos="fade-left">
+
+        <div class="bank-name">SeaBank</div>
+
+        <div class="rekening-number" id="rekeningWanita">
+          9876543210987
+        </div>
+
+        <div class="rekening-name">
+          a.n Susilawati
+        </div>
+
+        <button class="copy-btn" onclick="copyRekening('rekeningWanita')">
+          Salin Nomor Rekening
+        </button>
+
+      </div>
+
+    </div>
 
   </div>
 
@@ -654,6 +946,14 @@
   </div>
 
 </section>
+
+<button class="music-btn" onclick="toggleMusic()">
+  ♫
+</button>
+
+<audio id="bgMusic" loop>
+  <source src="music/wedding.mp3" type="audio/mp3">
+</audio>
 
 <footer>
 
@@ -756,7 +1056,9 @@
     const music = document.getElementById('bgMusic');
 
     if (music.paused) {
-      music.play();
+      music.volume = 0.4;
+
+    music.play();
     } else {
       music.pause();
     }
@@ -764,6 +1066,19 @@
   }
 
   window.toggleMusic = toggleMusic;
+
+  // COPY REKENING
+  function copyRekening(id) {
+
+    const rekening = document.getElementById(id).innerText;
+
+    navigator.clipboard.writeText(rekening);
+
+    alert('Nomor rekening berhasil disalin');
+
+  }
+
+  window.copyRekening = copyRekening;
 
   // TAMBAH UCAPAN REALTIME
   async function addWish() {
