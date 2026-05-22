@@ -83,7 +83,7 @@
     .letter {
       position: absolute;
       inset: 18px;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.97);
       border-radius: 20px;
       z-index: 2;
       display: flex;
@@ -91,30 +91,45 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 20px;
+      padding: 38px 28px;
       backdrop-filter: blur(10px);
     }
 
     .small-title {
-      letter-spacing: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      letter-spacing: 6px;
       text-transform: uppercase;
       color: #9b866d;
       font-size: 11px;
-      margin-bottom: 12px;
+      margin-bottom: 22px;
+      width: 100%;
+    }
+
+    .small-title::before,
+    .small-title::after {
+      content: '';
+      width: 70px;
+      height: 1px;
+      background: #cdb79b;
+      opacity: 0.8;
     }
 
     .main-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 44px;
-      line-height: 1;
+      font-size: 52px;
+      line-height: 0.95;
       color: #6a5847;
-      margin-bottom: 18px;
+      margin-bottom: 22px;
     }
 
     .date {
       color: #8b7864;
-      margin-bottom: 20px;
-      font-size: 14px;
+      margin-bottom: 26px;
+      font-size: 15px;
+      font-weight: 500;
     }
 
     .open-btn {
@@ -380,10 +395,16 @@
 <div class="opening" id="opening">
   <div class="envelope">
     <div class="letter">
-      <div class="small-title">The Wedding Of</div>
+      <div class="small-title">THE WEDDING OF</div>
       <div class="main-title">
         Deva &<br>Susilawati
       </div>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;color:#c8b193;">
+        <div style="width:55px;height:1px;background:#d7c1a6;"></div>
+        <div style="font-size:18px;">❤</div>
+        <div style="width:55px;height:1px;background:#d7c1a6;"></div>
+      </div>
+
       <div class="date">Selasa, 2 Juni 2026</div>
       <button class="open-btn" onclick="openInvitation()">
         Buka Undangan
