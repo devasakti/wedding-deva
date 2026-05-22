@@ -947,6 +947,36 @@
       .small-title::after {
         width: 45px;
       }
+        /* ==========================================
+       TOAST NOTIFICATION (NOTIFIKASI SALIN)
+       ========================================== */
+      .toast-notification {
+        position: fixed;
+        bottom: -100px; /* Sembunyi di bawah layar saat awal */
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #5d4d40, #7d6b5b);
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 1px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        z-index: 10000; /* Pastikan berada di atas semua elemen */
+        transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+    .toast-notification.show {
+      bottom: 40px; /* Membal ke atas saat aktif */
+      opacity: 1;
+      }
+        
     }
     }
 
@@ -1386,15 +1416,24 @@
 
   window.toggleMusic = toggleMusic;
 
-  // COPY REKENING
+  // COPY REKENING DENGAN EFEK TOAST PREMIUM
   function copyRekening(id) {
-
     const rekening = document.getElementById(id).innerText;
 
-    navigator.clipboard.writeText(rekening);
+    navigator.clipboard.writeText(rekening).then(() => {
+      const toast = document.getElementById('toastNotif');
+      
+      // Masukkan kelas 'show' untuk memunculkan toast
+      toast.classList.add('show');
 
-    alert('Nomor rekening berhasil disalin');
-
+      // Hilangkan kembali toast secara otomatis setelah 2 detik (2000 ms)
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2000);
+    }).catch((err) => {
+      console.error('Gagal menyalin: ', err);
+      alert('Gagal menyalin nomor rekening, silakan salin manual.');
+    });
   }
 
   window.copyRekening = copyRekening;
@@ -1463,5 +1502,8 @@
 
 </script>
 
+  <!-- Elemen Toast Notification -->
+<div id="toastNotif" class="toast-notification">✓ Nomor rekening berhasil disalin</div>
+  
 </body>
 </html>
