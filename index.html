@@ -669,9 +669,106 @@
 
     @media(max-width:768px) {
 
-      .hero-title {
-        font-size: 58px;
+      html,
+      body {
+        overflow-x: hidden;
+        width: 100%;
       }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      section {
+        overflow: hidden;
+      }
+
+      .hero-title {
+        font-size: 48px;
+        line-height: 1.1;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2,1fr);
+        gap: 15px;
+      }
+
+      .count-item {
+        padding: 18px 10px;
+      }
+
+      .section-title {
+        font-size: 38px;
+      }
+
+      .section-text {
+        font-size: 14px;
+        line-height: 1.8;
+        padding: 0 10px;
+      }
+
+      .card,
+      .wish-container,
+      .gift-wrapper,
+      .story-container {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .gift-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gift-card,
+      .story-card,
+      .wish-container {
+        padding: 28px 20px;
+      }
+
+      .rekening-number {
+        font-size: 22px;
+      }
+
+      .story-card {
+        padding-left: 65px;
+      }
+
+      .envelope {
+        width: 92%;
+        height: auto;
+        min-height: 390px;
+      }
+
+      .letter {
+        min-height: auto;
+        padding: 35px 20px;
+      }
+
+      .main-title {
+        font-size: 50px;
+      }
+
+      .small-title {
+        font-size: 10px;
+        letter-spacing: 4px;
+      }
+
+      .small-title::before,
+      .small-title::after {
+        width: 45px;
+      }
+
+      .music-btn {
+        width: 52px;
+        height: 52px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .wish-list {
+        max-height: 350px;
+      }
+    }
 
       .countdown {
         grid-template-columns: repeat(2,1fr);
