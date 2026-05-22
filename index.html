@@ -1,1 +1,456 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Wedding Of Deva & Susilawati</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fdfaf5;
+      color: #5f5246;
+      overflow-x: hidden;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: 1s;
+    }
+
+    .envelope {
+      width: 340px;
+      height: 230px;
+      background: linear-gradient(145deg, #f3e7d3, #fffaf1);
+      border-radius: 20px;
+      position: relative;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      overflow: hidden;
+      animation: floating 3s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .envelope::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: #e7d7bf;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+    }
+
+    .letter {
+      position: absolute;
+      inset: 20px;
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .small-text {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #8d7a66;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 15px;
+      color: #6f5c4d;
+    }
+
+    .date {
+      font-size: 14px;
+      color: #8f7b67;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 50px;
+      background: #b89f7a;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      transition: 0.3s;
+      box-shadow: 0 5px 15px rgba(184,159,122,0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #a88d69;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px 20px;
+      background:
+      linear-gradient(rgba(253,250,245,0.85), rgba(253,250,245,0.9)),
+      url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop') center/cover;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .hero-subtitle {
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: #9b866d;
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      line-height: 1;
+      margin-bottom: 20px;
+      color: #5e4f42;
+    }
+
+    .hero-date {
+      font-size: 18px;
+      margin-bottom: 40px;
+      color: #7c6a58;
+    }
+
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .count-box {
+      background: rgba(255,255,255,0.8);
+      padding: 25px 10px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .count-box h2 {
+      font-size: 42px;
+      color: #7a6651;
+      margin-bottom: 5px;
+    }
+
+    .count-box p {
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #9b8773;
+    }
+
+    section {
+      padding: 100px 20px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #5e4f42;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+      color: #7c6b5a;
+      line-height: 1.8;
+    }
+
+    .akad-card {
+      max-width: 700px;
+      margin: 50px auto 0;
+      background: white;
+      padding: 50px 30px;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .akad-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      margin-bottom: 20px;
+      color: #5e4f42;
+    }
+
+    .akad-card p {
+      margin-bottom: 12px;
+      color: #7a6a5b;
+      line-height: 1.8;
+    }
+
+    .maps-btn {
+      margin-top: 25px;
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 28px;
+      background: #b89f7a;
+      color: white;
+      border-radius: 50px;
+      transition: 0.3s;
+    }
+
+    .maps-btn:hover {
+      background: #a88d69;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      padding: 80px 20px;
+      text-align: center;
+      background: #f7efe3;
+    }
+
+    footer h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      margin-bottom: 20px;
+      color: #5e4f42;
+    }
+
+    footer p {
+      max-width: 700px;
+      margin: auto;
+      line-height: 1.8;
+      color: #7b6c5e;
+    }
+
+    .music-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      background: #b89f7a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      animation: rotate 5s linear infinite;
+    }
+
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @media(max-width:768px) {
+      .hero-title {
+        font-size: 52px;
+      }
+
+      .countdown {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .section-title {
+        font-size: 42px;
+      }
+
+      .akad-card {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay" id="overlay">
+    <div class="envelope">
+      <div class="letter">
+        <div class="small-text">The Wedding Of</div>
+        <div class="title">
+          Deva &<br>Susilawati
+        </div>
+        <div class="date">Selasa, 2 Juni 2026</div>
+        <button class="btn" onclick="openInvitation()">
+          Buka Undangan
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-subtitle">The Wedding Of</div>
+
+      <h1 class="hero-title">
+        Deva Wirasakti<br>&<br>Susilawati
+      </h1>
+
+      <div class="hero-date">
+        Selasa, 2 Juni 2026
+      </div>
+
+      <div class="countdown">
+        <div class="count-box">
+          <h2 id="days">00</h2>
+          <p>Hari</p>
+        </div>
+
+        <div class="count-box">
+          <h2 id="hours">00</h2>
+          <p>Jam</p>
+        </div>
+
+        <div class="count-box">
+          <h2 id="minutes">00</h2>
+          <p>Menit</p>
+        </div>
+
+        <div class="count-box">
+          <h2 id="seconds">00</h2>
+          <p>Detik</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Akad Nikah</h2>
+
+    <p class="section-subtitle">
+      Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara akad nikah kami.
+    </p>
+
+    <div class="akad-card">
+      <h3>Save The Date</h3>
+
+      <p><strong>Selasa, 2 Juni 2026</strong></p>
+      <p>Pukul 10.00 WIB</p>
+
+      <br>
+
+      <p>
+        Jl. Bungur Raya, RT.01/RW.08,<br>
+        Cilendek Timur,<br>
+        Tanah Sareal,<br>
+        Kota Bogor, Jawa Barat 16112
+      </p>
+
+      <a
+        class="maps-btn"
+        href="https://maps.google.com/?q=Jl.+Bungur+Raya+RT01+RW08+Cilendek+Timur+Bogor"
+        target="_blank"
+      >
+        Buka Google Maps
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <h2>Terima Kasih</h2>
+
+    <p>
+      Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu.
+      <br><br>
+      Kami yang berbahagia,
+      <br><br>
+      <strong>Deva Wirasakti & Susilawati</strong>
+    </p>
+  </footer>
+
+  <div class="music-control" onclick="toggleMusic()">
+    ♫
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="music/music.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    const targetDate = new Date('June 2, 2026 10:00:00').getTime();
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerHTML = days;
+      document.getElementById('hours').innerHTML = hours;
+      document.getElementById('minutes').innerHTML = minutes;
+      document.getElementById('seconds').innerHTML = seconds;
+    }, 1000);
+
+    function openInvitation() {
+      const overlay = document.getElementById('overlay');
+      overlay.style.opacity = '0';
+      overlay.style.visibility = 'hidden';
+
+      document.body.style.overflow = 'auto';
+
+      const music = document.getElementById('bgMusic');
+      music.play();
+    }
+
+    function toggleMusic() {
+      const music = document.getElementById('bgMusic');
+
+      if (music.paused) {
+        music.play();
+      } else {
+        music.pause();
+      }
+    }
+
+    document.body.style.overflow = 'hidden';
+  </script>
+
+</body>
+</html>
 
