@@ -980,6 +980,49 @@
     }
     }
 
+    /* ==========================================
+       BANNER GAMBAR DEKORATIF (DI ATAS AKAD)
+       ========================================== */
+    .decor-banner-section {
+      padding: 60px 20px 0; /* Memberi jarak manis dari Hero ke Gambar */
+      text-align: center;
+    }
+
+    .decor-banner-wrapper {
+      max-width: 760px; /* Lebarnya disamakan dengan lebar Card Akad Nikah agar serasi */
+      margin: 0 auto;
+      border-radius: 35px; /* Sudut melengkung halus yang elegan */
+      overflow: hidden;
+      box-shadow: 0 20px 45px rgba(93, 77, 64, 0.08); /* Efek bayangan lembut */
+      border: 1px solid rgba(224, 204, 177, 0.2);
+    }
+
+    .decor-banner-wrapper img {
+      width: 100%;
+      height: 100%;
+      max-height: 450px; /* Batas tinggi maksimal gambar agar tidak terlalu panjang di desktop */
+      object-fit: cover; /* Memastikan gambar tidak gepeng/ketarik */
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    /* Efek hover interaktif halus */
+    .decor-banner-wrapper:hover img {
+      transform: scale(1.03);
+    }
+
+    @media(max-width: 768px) {
+      .decor-banner-section {
+        padding: 40px 15px 0;
+      }
+      .decor-banner-wrapper {
+        border-radius: 24px; /* Lengkungan sedikit lebih kecil di HP agar rapi */
+      }
+      .decor-banner-wrapper img {
+        max-height: 280px; /* Tinggi disesuaikan untuk layar HP */
+      }
+    }
+    
   </style>
 </head>
 <body>
@@ -1046,6 +1089,32 @@
   </div>
 </section>
 
+  <!-- ==========================================
+     KOTAK KALIGRAFI AR-RUM 21 ELEGAN (TANPA GAMBAR)
+     ========================================== -->
+<div class="decor-banner-section">
+  <div class="decor-banner-wrapper" data-aos="zoom-in" data-aos-duration="1600" style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); padding: 40px 30px;">
+    
+    <!-- Teks Arab dengan Font Serif Bawaan Browser yang Rapi -->
+    <p style="font-size: 26px; line-height: 2.2; color: #5d4d40; direction: rtl; font-family: 'Times New Roman', serif; margin-bottom: 25px; font-weight: 500;">
+      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً
+    </p>
+
+    <!-- Pembatas Garis Estetik -->
+    <div style="width: 60px; height: 1px; background: #cdb79b; margin: 0 auto 20px;"></div>
+
+    <!-- Terjemahan Bahasa Indonesia -->
+    <p style="font-size: 14px; line-height: 1.8; color: #7b6b5b; font-style: italic; max-width: 600px; margin: 0 auto;">
+      "Dan di antara tanda-tanda (kebesaran)-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."
+    </p>
+    
+    <p style="font-size: 12px; letter-spacing: 2px; color: #b08f6d; margin-top: 15px; font-weight: 600; text-transform: uppercase;">
+      — Q.S. Ar-Rum: 21 —
+    </p>
+
+  </div>
+</div>
+  
 <section>
 
   <h2 class="section-title" data-aos="fade-up">
@@ -1123,37 +1192,6 @@
           <strong>Bapak Alm Ujang Amri</strong> <br>
           &amp; <strong>Ibu Samiyati</strong>
         </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================
-     SECTION GALERI FOTO PREWEDDING
-     ========================================== -->
-<section class="gallery-section">
-  <div class="container" style="margin: 0 auto;">
-    <h2 class="section-title" data-aos="fade-up">Galeri Bahagia</h2>
-    <p class="section-text" data-aos="fade-up" data-aos-delay="150">
-      Mengabadikan sisa waktu dalam coretan potret kebersamaan sebelum melangkah ke gerbang ikatan suci.
-    </p>
-
-    <!-- Susunan Asimetris Elegan ala Undangan Premium -->
-    <div class="gallery-grid" data-aos="zoom-in-up" data-aos-delay="300">
-      <div class="gallery-item tall">
-        <img src="https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=600&auto=format&fit=crop" alt="Prewedding Deva Susi 1">
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1519225495810-7512c696505a?q=80&w=600&auto=format&fit=crop" alt="Prewedding Deva Susi 2">
-      </div>
-      <div class="gallery-item tall">
-        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=600&auto=format&fit=crop" alt="Prewedding Deva Susi 3">
-      </div>
-      <div class="gallery-item wide">
-        <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=800&auto=format&fit=crop" alt="Prewedding Deva Susi 4">
-      </div>
-      <div class="gallery-item">
-        <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=600&auto=format&fit=crop" alt="Prewedding Deva Susi 5">
       </div>
     </div>
   </div>
