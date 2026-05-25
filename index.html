@@ -206,38 +206,63 @@
       margin-bottom: 50px;
     }
 
+    /* ==========================================
+       COUNTDOWN TIMER (1 BARIS DI SEMUA LAYAR)
+       ========================================== */
     .countdown {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 20px;
-      max-width: 700px;
-      margin: auto;
+      display: flex;            /* Menggunakan Flexbox agar pasti menderet 1 baris */
+      justify-content: center;  /* Memposisikan kotak di tengah-tengah card */
+      align-items: center;
+      gap: 10px;                /* Jarak antar kotak */
+      max-width: 100%;
+      margin: 25px auto 10px;
     }
 
     .box {
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(12px);
-      border-radius: 28px;
-      padding: 30px 15px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-      transition: 0.4s;
+      flex: 1;                  /* Membagi rata lebar kotak secara adil */
+      min-width: 0;             /* Mencegah kotak meluap/pecah baris di HP */
+      background: #fdf8f3; 
+      border: 1px solid rgba(224, 204, 177, 0.4);
+      border-radius: 15px;
+      padding: 12px 5px;        /* Padding atas-bawah pas, samping sengaja tipis */
+      box-shadow: 0 10px 25px rgba(93, 77, 64, 0.03);
+      transition: 0.3s;
     }
 
     .box:hover {
-      transform: translateY(-8px);
+      transform: translateY(-4px);
     }
 
     .box h2 {
-      font-size: 48px;
+      font-size: 26px;          /* Ukuran angka di desktop yang proporsional */
       color: #6d5b4c;
-      margin-bottom: 10px;
+      margin-bottom: 2px;
+      font-weight: 600;
     }
 
     .box p {
       text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
+      letter-spacing: 1px;
+      font-size: 10px;
       color: #998570;
+    }
+
+    /* KHUSUS TAMPILAN HP (RESPONSIF AGAR TIDAK SESAK) */
+    @media(max-width: 768px) {
+      .countdown {
+        gap: 6px;               /* Mempersempit jarak antar kotak di HP */
+      }
+      .box {
+        padding: 10px 2px;      /* Memperkecil padding di HP */
+        border-radius: 12px;
+      }
+      .box h2 {
+        font-size: 20px;        /* Mengecilkan angka di HP agar muat 1 baris */
+      }
+      .box p {
+        font-size: 9px;         /* Teks 'Hari', 'Jam', dll disesuaikan */
+        letter-spacing: 0px;
+      }
     }
 
     section {
@@ -1063,28 +1088,6 @@
       Selasa, 2 Juni 2026
     </div>
 
-    <div class="countdown" data-aos="fade-up" data-aos-delay="400">
-
-      <div class="box">
-        <h2 id="days">00</h2>
-        <p>Hari</p>
-      </div>
-
-      <div class="box">
-        <h2 id="hours">00</h2>
-        <p>Jam</p>
-      </div>
-
-      <div class="box">
-        <h2 id="minutes">00</h2>
-        <p>Menit</p>
-      </div>
-
-      <div class="box">
-        <h2 id="seconds">00</h2>
-        <p>Detik</p>
-      </div>
-
     </div>
   </div>
 </section>
@@ -1116,7 +1119,7 @@
 </div>
   
 <!-- ==========================================
-     SECTION AKAD NIKAH (VERSI LEBIH INDAH & ELEGAN)
+     SECTION AKAD NIKAH + COUNTDOWN TIMER
      ========================================== -->
 <section>
 
@@ -1124,34 +1127,52 @@
     Akad Nikah
   </h2>
 
-  <!-- Teks Pembuka yang Lebih Hangat dan Khidmat -->
   <p class="section-text" data-aos="fade-up" data-aos-delay="150" style="margin-bottom: 40px;">
-    Menjemput ridho Allah SWT, dengan penuh rasa syukur, kami bermaksud mengumumkan ikatan suci yang akan kami ikrarkan. Untaian doa restu dari Bapak/Ibu/Saudara/i sekalian akan menjadi berkah yang tak terhingga bagi awal perjalanan panjang hidup baru kami bersama.
+    Menjemput ridho Allah SWT, dengan penuh rasa syukur, kami bermaksud mengumumkan ikatan suci yang akan kami ikrarkan. Kehadiran serta untaian doa restu dari Bapak/Ibu/Saudara/i sekalian akan menjadi berkah yang tak terhingga bagi awal perjalanan panjang hidup baru kami bersama.
   </p>
 
   <div class="card" data-aos="zoom-in-up">
 
     <h3 style="letter-spacing: 2px;">Save The Date</h3>
 
-    <!-- Tanggal dan Waktu -->
     <p style="font-size: 18px; margin-bottom: 8px;"><strong>Selasa, 2 Juni 2026</strong></p>
     <p style="color: #b08f6d; font-weight: 500; font-size: 15px; letter-spacing: 1px;">PUKUL 10.00 WIB S/D SELESAI</p>
 
-    <!-- Garis Pembatas Kecil di Dalam Card -->
-    <div style="width: 40px; height: 1px; background: #cdb79b; margin: 20px auto;"></div>
+    <!-- ==========================================
+         BOX COUNTDOWN PINDAH KE SINI 
+         ========================================== -->
+    <div class="countdown">
+      <div class="box">
+        <h2 id="days">00</h2>
+        <p>Hari</p>
+      </div>
+      <div class="box">
+        <h2 id="hours">00</h2>
+        <p>Jam</p>
+      </div>
+      <div class="box">
+        <h2 id="minutes">00</h2>
+        <p>Menit</p>
+      </div>
+      <div class="box">
+        <h2 id="seconds">00</h2>
+        <p>Detik</p>
+      </div>
+    </div>
 
-    <!-- Tempat Acara -->
+    <!-- Garis Pembatas Kecil -->
+    <div style="width: 40px; height: 1px; background: #cdb79b; margin: 25px auto;"></div>
+
     <p style="font-size: 14px; color: #8b7864; font-weight: 500; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">
       Lokasi Acara:
     </p>
     <p style="line-height: 1.8; font-size: 15px;">
       <strong>Kediaman Mempelai Wanita</strong><br>
       Jl. Bungur Raya, RT.01/RW.08,<br>
-      Cilendek Timur, Kecamatan Bogor Barat,<br>
+      Cilendek Timur, Kec. Tanah Sareal,<br>
       Kota Bogor, Jawa Barat 16112
     </p>
 
-    <!-- Tombol Maps -->
     <a
       class="maps-btn"
       href="https://maps.app.goo.gl/FoLoLs67TN7Bzi926"
@@ -1271,7 +1292,7 @@
         <div class="bank-name">Bank Mandiri</div>
 
         <div class="rekening-number" id="rekeningPria">
-          1234567890123
+          1330018704676
         </div>
 
         <div class="rekening-name">
@@ -1289,7 +1310,7 @@
         <div class="bank-name">SeaBank</div>
 
         <div class="rekening-number" id="rekeningWanita">
-          9876543210987
+          901919138918
         </div>
 
         <div class="rekening-name">
